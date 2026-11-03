@@ -2,6 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <!-- sem isso o celular nao respeita o @media -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Treino Forte</title>
 
     <!--
@@ -191,6 +193,113 @@
             padding: 20px;
             font-size: 14px;
         }
+
+        /* ---------- animacoes e efeitos ---------- */
+
+        /* animacao do banner: o texto desce e aparece */
+        @keyframes descer {
+          from {
+            opacity: 0;
+            transform: translateY(-40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0px);
+          }
+        }
+
+        #banner h2 {
+          animation-name: descer;
+          animation-duration: 1.5s;
+        }
+
+        #banner p {
+          animation-name: descer;
+          animation-duration: 2s;
+        }
+
+        /* animacao do selo: fica aumentando e diminuindo */
+        @keyframes pulsar {
+          0% {transform: scale(1);}
+          50% {transform: scale(1.15);}
+          100% {transform: scale(1);}
+        }
+
+        .selo {
+          animation-name: pulsar;
+          animation-duration: 1.2s;
+          animation-iteration-count: infinite;
+        }
+
+        /* hover nos cards */
+        .card {
+          transition: 0.3s;
+        }
+
+        .card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+          border-color: #c0392b;
+        }
+
+        .botao:hover {
+          background-color: #c0392b;
+        }
+
+        /* botao de voltar pro topo, fixo no canto da tela */
+        #voltar {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #c0392b;
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 22px;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* ---------- responsividade ---------- */
+
+        /* tablet: 2 colunas */
+        @media (max-width: 900px) {
+          .grade {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          #banner h2 {
+            font-size: 40px;
+          }
+        }
+
+        /* celular: 1 coluna e o menu vai pra baixo do logo */
+        @media (max-width: 600px) {
+          .grade {
+            grid-template-columns: 1fr;
+          }
+
+          #topo {
+            flex-direction: column;
+            padding: 15px;
+          }
+
+          .menu {
+            margin-top: 10px;
+            gap: 15px;
+          }
+
+          #banner h2 {
+            font-size: 32px;
+          }
+
+          #banner p {
+            font-size: 16px;
+          }
+        }
     </style>
 </head>
 <body>
@@ -276,6 +385,9 @@
     <p>Loja Treino Forte - (43) 99999-0000 - Londrina, PR</p>
     <p>Página feita para a atividade 3 - Luiz Felipe Porto e Vinicius Neiva Bueno da Silva</p>
 </div>
+
+<!-- botao de voltar pro topo -->
+<a href="#" id="voltar">&#8593;</a>
 
 </body>
 </html>
