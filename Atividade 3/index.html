@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Treino Forte</title>
+
+    <!--
+        Atividade 3 - Layout com HTML e CSS
+        Alunos: Luiz Felipe Porto e Vinicius Neiva Bueno da Silva
+    -->
+
+    <!-- fonte que eu peguei no Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- css interno, dentro da propria pagina -->
+    <style>
+        /* ========================================
+           ESTILO GERAL DA PÁGINA
+           ======================================== */
+
+        * {
+            box-sizing: border-box;           /* o padding não aumenta o tamanho da caixa */
+        }
+
+        body {
+            background-color: #f2f2f2;
+            color: #333333;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 16px;
+            margin: 0px;
+        }
+
+        h1, h2 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* ========================================
+           TOPO COM FLEXBOX
+           o logo fica na esquerda e o menu na direita
+           ======================================== */
+
+        #topo {
+            background-color: #1f3a5f;
+            color: #ffffff;
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;   /* separa o logo do menu */
+            align-items: center;              /* alinha na vertical */
+        }
+
+        #topo h1 {
+            font-size: 40px;
+            margin: 0px;
+        }
+
+        #topo h1 span {
+            color: #e74c3c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ========================================
+           BANNER
+           ======================================== */
+
+        #banner {
+            background-color: #c0392b;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        #banner h2 {
+            font-size: 50px;
+            margin: 0px;
+        }
+
+        #banner p {
+            font-size: 19px;
+            margin-top: 5px;
+        }
+
+        /* ========================================
+           PRODUTOS COM GRID
+           3 colunas e 2 linhas = 6 cards
+           ======================================== */
+
+        #produtos {
+            max-width: 1100px;
+            margin: 40px auto;                /* auto centraliza a caixa na tela */
+            padding: 0px 20px;
+        }
+
+        #produtos > h2 {
+            color: #1f3a5f;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);   /* 3 colunas do mesmo tamanho */
+            gap: 25px;
+        }
+
+        /* ========================================
+           CARD (BOX MODEL)
+           ======================================== */
+
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #dddddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            position: relative;               /* para o selo ficar preso dentro do card */
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;                /* corta a imagem sem esticar */
+            border-radius: 6px;
+        }
+
+        .card h3 {
+            color: #1f3a5f;
+            font-size: 20px;
+            margin: 12px 0px 5px 0px;
+        }
+
+        .card .descricao {
+            color: #666666;
+            font-size: 15px;
+            line-height: 1.5;
+            min-height: 70px;
+        }
+
+        .card .preco {
+            color: #c0392b;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #1f3a5f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+        }
+
+        /* ========================================
+           POSITION
+           o selo fica no canto de cima do card
+           ======================================== */
+
+        .selo {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background-color: #e0a800;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* ========================================
+           RODAPÉ
+           ======================================== */
+
+        #rodape {
+            background-color: #1f3a5f;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- cabecalho da loja -->
+<div id="topo">
+    <h1>Treino <span>Forte</span></h1>
+    <div class="menu">
+        <a href="#">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#rodape">Contato</a>
+    </div>
+</div>
+
+<!-- faixa de promocao -->
+<div id="banner">
+    <h2>Semana do treino em casa</h2>
+    <p>Tudo para montar a sua academia em casa com até 20% de desconto</p>
+</div>
+
+<!-- area dos produtos -->
+<div id="produtos">
+    <h2>Produtos</h2>
+
+    <div class="grade">
+
+        <div class="card">
+            <span class="selo">-20%</span>
+            <img src="img/halteres.jpg" alt="Halteres coloridos">
+            <h3>Kit de halteres</h3>
+            <p class="descricao">Halteres emborrachados de 1 a 5 kg. Bons para treinar braço e ombro em casa.</p>
+            <p class="preco">R$ 189,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img/kettlebell.jpg" alt="Kettlebell de 16 kg">
+            <h3>Kettlebell 16 kg</h3>
+            <p class="descricao">Kettlebell de ferro para swing, agachamento e levantamento.</p>
+            <p class="preco">R$ 249,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <div class="card">
+            <span class="selo">Novo</span>
+            <img src="img/tapete.jpg" alt="Tapete de yoga enrolado">
+            <h3>Tapete de yoga</h3>
+            <p class="descricao">Tapete antiderrapante para alongamento, abdominal e yoga.</p>
+            <p class="preco">R$ 79,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img/garrafa.jpg" alt="Garrafa squeeze vermelha">
+            <h3>Squeeze 750 ml</h3>
+            <p class="descricao">Garrafa de plástico com bico. Cabe no porta copo da esteira.</p>
+            <p class="preco">R$ 29,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <div class="card">
+            <span class="selo">-20%</span>
+            <img src="img/bola.jpg" alt="Medicine ball">
+            <h3>Medicine ball 8 kg</h3>
+            <p class="descricao">Bola com peso para arremesso, abdominal e treino funcional.</p>
+            <p class="preco">R$ 159,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img/rolo.jpg" alt="Rolo de liberacao miofascial">
+            <h3>Rolo de liberação</h3>
+            <p class="descricao">Rolo de espuma para soltar a musculatura depois do treino.</p>
+            <p class="preco">R$ 69,90</p>
+            <a href="#" class="botao">Comprar</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- rodape -->
+<div id="rodape">
+    <p>Loja Treino Forte - (43) 99999-0000 - Londrina, PR</p>
+    <p>Página feita para a atividade 3 - Luiz Felipe Porto e Vinicius Neiva Bueno da Silva</p>
+</div>
+
+</body>
+</html>
